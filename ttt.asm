@@ -196,22 +196,6 @@ getnum: ; accepts 1..9
 	jnc getnum ; Is it greater than or equal to? Wait 
 	ret;
 
-message:                        ; Dump si to screen.
-  ;xor di, di
-	mov di, 20
-.loop:
-  mov cl, [si]
-  test cl, cl
-  jz .done
-  mov ch, bh
-  mov word [es:di], cx
-  inc di
-  inc di
-  inc si
-  jmp .loop
-.done:
-  ret
-
 turn equ 0x30
 
 times (510 - ($ - $$)) db 0x00     ;set 512 BS
