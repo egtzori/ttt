@@ -190,11 +190,11 @@ tie:
 getnum: ; accepts 1..9
   mov ah, 0               ; wait for key
   int 0x16
-	sub al,0x31 ; Subtract code for ASCII digit 1
-	jc getnum ; Is it less than? Wait for another key
-	cmp al,0x09 ; Comparison with 9
-	jnc getnum ; Is it greater than or equal to? Wait 
-	ret;
+  sub al,0x31 ; Subtract code for ASCII digit 1
+  jc getnum ; Is it less than? Wait for another key
+  cmp al,0x09 ; Comparison with 9
+  jnc getnum ; Is it greater than or equal to? Wait 
+  ret;
 
 turn equ 0x30
 
