@@ -9,3 +9,8 @@ boot:
 %.bin: %.asm
 	nasm -f bin $< -o $@
 
+boot_debug:
+	qemu-system-i386 -fda ttt.bin -boot a -s -S
+
+gdb:
+	gdb --init-command=.gdbinit
