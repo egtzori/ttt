@@ -170,6 +170,7 @@ winner: ; win symbol + color in bx
   mov ax, bx
   stosw
 
+waitkey_and_reboot:
   mov ah, 0               ; wait for key
   int 0x16
 
@@ -185,7 +186,7 @@ tie:
   stosw
   mov al, 'e'
   stosw
-	ret;	
+  jmp waitkey_and_reboot
   
 getnum: ; accepts 1..9
   mov ah, 0               ; wait for key
